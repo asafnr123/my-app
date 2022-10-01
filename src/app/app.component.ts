@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { concatWith } from 'rxjs';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'my-app';  
+  messageFromParent: string = "This is from the parent";
+
+  messageFromChild: string = "";
+
+  receiveMessage($event:string) {
+    alert(this.messageFromChild = $event);
+  }
+
 }
+
